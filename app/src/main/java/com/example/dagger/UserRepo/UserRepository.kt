@@ -11,7 +11,7 @@ interface UserRepository {
 
     }
 }
-@ApplicationScope
+@ActivityScope
 class SQlRepository @Inject constructor( val analyticsService: AnalyticsService) : UserRepository { // user saved
         override fun saveUser(email: String, password: String) {
             Log.d(ContentValues.TAG, "User Saved in DB")

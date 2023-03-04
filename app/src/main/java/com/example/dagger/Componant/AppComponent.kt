@@ -2,7 +2,11 @@ package com.example.dagger.Componant
 
 import com.example.dagger.Analytics.AnalyticsModule
 import com.example.dagger.AnalyticsService
+import com.example.dagger.ApplicationScope
+import com.example.dagger.Mixpanel
 import dagger.Component
+import dagger.Provides
+import dagger.Subcomponent
 import javax.inject.Singleton
 
 
@@ -10,6 +14,7 @@ import javax.inject.Singleton
 @Component(modules = [AnalyticsModule::class])
 interface AppComponent {
 
-    fun getAnalyticsService(): AnalyticsService
+    fun getUserRegistrationComponent() : UserRegistrationComponent
+    //fun getAnalyticsService(): AnalyticsService
 
 }

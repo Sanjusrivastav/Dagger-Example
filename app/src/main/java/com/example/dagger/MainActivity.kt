@@ -12,11 +12,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var  userRegistrationService : UserRegistrationService
 
     @Inject
-    lateinit var emailService :NotificationService.EmailService
-
-    @Inject
-    lateinit var emailService1 :NotificationService.EmailService
-
+    lateinit var emailService :EmailService
 
     @Inject
     lateinit var fireBaseRepository: FireBaseRepository
@@ -33,8 +29,9 @@ class MainActivity : AppCompatActivity() {
 //        component.inject(this)
 
         val appComponent =(application as UserApplication).appComponent
-         val userRegistrationComponent = DaggerUserRegistrationComponent.factory().create(3,appComponent)
-        userRegistrationComponent.inject( this)
+         val userRegistrationComponent = appComponent.getUserRegistrationComponent()
+       userRegistrationComponent.inject( this)
+
 
         userRegistrationService.registrationUser("SanjanaSrivastav1997@gmail.com","12345")
     }
